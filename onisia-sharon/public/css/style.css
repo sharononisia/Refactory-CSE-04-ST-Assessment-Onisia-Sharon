@@ -92,7 +92,7 @@
 .btn-danger {
   background-color: red; /* Solid red background */
   border-color: red;     /* Red border */
-  color: white;          /* White text */
+  color: white;    /* White text */
 }
 
 .btn-danger:hover {

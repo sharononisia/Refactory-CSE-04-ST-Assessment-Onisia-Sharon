@@ -18,14 +18,8 @@ require("dotenv").config();
 //import models
 const Signup  = require('./models/signup');
 
-
-
 //import routes
 const signupRoutes = require('./routes/signupRoutes');
-
-
-
-
 
 //instantiations
 const app = express();
@@ -62,20 +56,17 @@ app.use(passport.initialize());//intialize passport
 app.use(passport.session());//use passport session
 
 
-//passport configs
-passport.use(Signup.createStrategy()); // use the local strategy
-passport.serializeUser(Signup.serializeUser()); // assign a serial number to a user in the system
-passport.deserializeUser(Signup.deserializeUser()); // the serial number is destroyed on log out
+// //passport configs
+// passport.use(Signup.createStrategy()); // use the local strategy
+// passport.serializeUser(Signup.serializeUser()); // assign a serial number to a user in the system
+// passport.deserializeUser(Signup.deserializeUser()); // the serial number is destroyed on log out
 
 //use imported routes
 app.use("/", signupRoutes);
 
-
 app.get("*", (req, res) => {
   res.send("Error! This page does not exist");
 });
-
-
 
 //bootstraping a server
 app.listen(port, () => console.log(`listening on port ${port}`)); // string interporation
